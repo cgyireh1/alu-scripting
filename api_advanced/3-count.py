@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """
 Write a recursive function to query the Reddit API,
-parse the title of all hot articles, 
+parse the title of all hot articles,
 and print the sorted count of given keywords.
 """
-import re
 import requests
 
 BASE_URL = 'http://reddit.com/r/{}/hot.json'
@@ -43,8 +42,7 @@ def print_results(word_list, hot_list):
         count[word] = 0
     for title in hot_list:
         for word in word_list:
-            count[word] = count[word] +\
-             len(re.findall(r'(?:^| ){}(?:$| )'.format(word), title, re.I))
+            count[word] += title.lower().count(word.lower())
 
     count = {k: v for k, v in count.items() if v > 0}
     words = sorted(list(count.keys()))
