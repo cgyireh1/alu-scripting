@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 defines recursive function to query the Reddit API
 to parse title of all hot article and print sorted count
@@ -8,6 +9,7 @@ import requests
 
 
 def count_words(subreddit, word_list, after=None, count={}):
+
     """
     queries the Reddit API
     parses title of all hot articles
