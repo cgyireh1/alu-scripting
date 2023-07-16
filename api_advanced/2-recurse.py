@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Defines a recursive function to query the 
+Defines a recursive function to query the
 Reddit API for all hot articles of a given subreddit
 """
 
@@ -25,7 +25,8 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
         )
 
     subreddit_info = (
-        requests.get(sub_URL, headers={"user-agent": "user"}, allow_redirects=False)
+        requests.get(sub_URL, headers={"user-agent":
+            "user"}, allow_redirects=False)
         .json()
     )
 
@@ -41,6 +42,8 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
     after = subreddit_info.get("data").get("after")
 
     if after is None:
+        if len(hot_list) > 0:
+            print("OK")
         return hot_list
 
     return recurse(subreddit, hot_list, after, count)
