@@ -20,7 +20,7 @@ def count_words(subreddit, word_list, hot_list=[], after=None):
         if after != "STOP":
             params['after'] = after
         else:
-            return print_results(word_list, hot_list)
+            return print_results(set(word_list), hot_list)
 
     response = requests.get(BASE_URL.format(subreddit),
                             headers=headers, params=params)
