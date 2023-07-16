@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+`#!/usr/bin/python3
 """
 Write a recursive function to query the Reddit API,
 parse the title of all hot articles,
@@ -62,7 +62,7 @@ def count_words(subreddit, word_list, after=None, count={}):
                         if count[k] > int(result[i].split(' ')[1]):
                             result = (
                                     result[:i] + ["{}: {}"
-                                           .format(k, count[k])] + result[i:]
+                                               .format(k, count[k])] + result[i:]
                                     )
                             break
                         elif count[k] == int(result[i].split(' ')[1]):
@@ -79,7 +79,7 @@ def count_words(subreddit, word_list, after=None, count={}):
                                 if k == alpha_list[j]:
                                     result = (
                                             result[:i + j] + ["{}: {}"
-                                                   .format(k, count[k])] +
+                                                           .format(k, count[k])] +
                                             result[i + j:]
                                             )
                         else:
