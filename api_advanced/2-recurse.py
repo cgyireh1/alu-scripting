@@ -26,7 +26,7 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
 
     subreddit_info = (
         requests.get(sub_URL, headers={"user-agent":
-            "user"}, allow_redirects=False)
+                                       "user"}, allow_redirects=False)
         .json()
     )
 
