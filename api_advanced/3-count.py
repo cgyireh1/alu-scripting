@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
 Write a recursive function to query the Reddit API,
-parse the title of all hot articles, 
+parse the title of all hot articles,
 and print the sorted count of given keywords.
 """
 
 
 def count_words(subreddit, word_list, after=None, count={}):
     """
-    Queries the Reddit API, parses the title of all hot articles, 
+    Queries the Reddit API, parses the title of all hot articles,
     and prints the sorted count of given keywords.
     """
     import requests
@@ -60,7 +60,10 @@ def count_words(subreddit, word_list, after=None, count={}):
                 else:
                     for i in range(len(result)):
                         if count[k] > int(result[i].split(' ')[1]):
-                            result = result[:i] + ["{}: {}".format(k, count[k])] + result[i:]
+                            result = (
+                                    result[:i] + ["{}: {}"
+                                        .format(k, count[k])] + result[i:]
+                                    )
                             break
                         elif count[k] == int(result[i].split(' ')[1]):
                             alpha_list = [k, result[i].split(' ')[0]]
@@ -74,7 +77,10 @@ def count_words(subreddit, word_list, after=None, count={}):
 
                             for j in range(len(alpha_list)):
                                 if k == alpha_list[j]:
-                                    result = result[:i + j] + ["{}: {}".format(k, count[k])] + result[i + j:]
+                                    result = (
+                                            result[:i + j] + ["{}: {}"
+                                                .format(k, count[k])] + result[i + j:]
+                                            )
                         else:
                             continue
                     else:
