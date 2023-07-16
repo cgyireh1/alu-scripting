@@ -62,7 +62,7 @@ def count_words(subreddit, word_list, after=None, count={}):
                         if count[k] > int(result[i].split(' ')[1]):
                             result = (
                                     result[:i] + ["{}: {}"
-                                        .format(k, count[k])] + result[i:]
+                                           .format(k, count[k])] + result[i:]
                                     )
                             break
                         elif count[k] == int(result[i].split(' ')[1]):
@@ -79,7 +79,8 @@ def count_words(subreddit, word_list, after=None, count={}):
                                 if k == alpha_list[j]:
                                     result = (
                                             result[:i + j] + ["{}: {}"
-                                                .format(k, count[k])] + result[i + j:]
+                                                   .format(k, count[k])] +
+                                            result[i + j:]
                                             )
                         else:
                             continue
