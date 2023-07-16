@@ -42,8 +42,6 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
     after = subreddit_info.get("data").get("after")
 
     if after is None:
-        if len(hot_list) > 0:
-            print("OK")
         return hot_list
 
     return recurse(subreddit, hot_list, after, count)
