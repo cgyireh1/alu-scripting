@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-Defines a recursive function to query the Reddit API for all hot articles of a given subreddit
+Defines a recursive function to query the Reddit API for
+all hot articles of a given subreddit
 """
 
 
@@ -15,9 +16,11 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
     if after is None:
         sub_URL = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     else:
-        sub_URL = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit, after)
+        sub_URL = 'https://www.reddit.com/r/{}/hot.json?after={}'
+        .format(subreddit, after)
 
-    subreddit_info = requests.get(sub_URL, headers={"user-agent": "user"}, allow_redirects=False).json()
+    subreddit_info = requests.get(sub_URL, headers={"user-agent": "user"}, 
+    allow_redirects=False).json()
 
     if "data" not in subreddit_info and hot_list == []:
         return None
